@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Yeumoney Bypasser by anh hiếu đẹp zai
 // @namespace    http://tampermonkey.net/
-// @version      5.0
-// @description  Bypass Yeumoney không cần key chỉ cần 1 nụ cười tự tin
-// @author       HieuDz 90% ,Ducknovis  10%
+// @version      6.4
+// @description  The Ultimate Yeumoney Bypass ( Hieudz * Ducknovis )
+// @author       HieuDz
 // @match        https://yeumoney.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
