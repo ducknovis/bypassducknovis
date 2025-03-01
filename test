@@ -1,0 +1,645 @@
+// ==UserScript==
+// @name         Yeumoney Bypass Tool v2
+// @namespace    http://tampermonkey.net/
+// @version      6.4
+// @description  The Ultimate Yeumoney Bypass ( Hieudz * Ducknovis )
+// @author       HieuDz
+// @match        https://yeumoney.com/*
+// @grant        GM_xmlhttpRequest
+// @grant        GM_getValue
+// @grant        GM_setValue
+// ==/UserScript==
+
+(async function () {
+  'use strict';
+
+  async function _0x15ec35() {
+    let _0x6f509f = localStorage.getItem("deviceID");
+    if (!_0x6f509f) {
+      const _0x59387e = navigator.userAgent;
+      const _0x497210 = navigator.platform;
+      const _0x4efa5f = navigator.language;
+      const _0x53459f = _0x59387e + _0x497210 + _0x4efa5f;
+      const _0x375b3a = new TextEncoder();
+      const _0x107de3 = _0x375b3a.encode(_0x53459f);
+      const _0x278211 = await crypto.subtle.digest("SHA-256", _0x107de3);
+      const _0x5ddd08 = Array.from(new Uint8Array(_0x278211));
+      const _0x1b75f1 = _0x5ddd08.map(_0x3f0fa5 => _0x3f0fa5.toString(16).padStart(2, '0')).join('');
+      _0x6f509f = _0x1b75f1.substring(0, 16);
+      localStorage.setItem("deviceID", _0x6f509f);
+    }
+    return _0x6f509f;
+  }
+
+  async function _0x2b506f() {
+    try {
+      const _0xe8d988 = await fetch("https://api64.ipify.org?format=json", { 'cache': "no-store" });
+      if (!_0xe8d988.ok) throw new Error("Không thể lấy IP");
+      const _0x3383e4 = await _0xe8d988.json();
+      return _0x3383e4.ip;
+    } catch (_0x2e6664) {
+      console.error("Lỗi lấy IP:", _0x2e6664);
+      return "Không xác định";
+    }
+  }
+
+  function _0x25b8cb(_0x5cc892, _0x55476a, _0x30d8f9) {
+    const _0x8e2248 = {
+      'username': "Bypasser Notifi By HieuDz",
+      'avatar_url': "https://i.pinimg.com/736x/77/c9/0a/77c90a2b0c3a7d4a6a1ae22d5ac4238e.jpg",
+      'embeds': [{
+        'title': "**Bypass Thành Công**",
+        'color': 0x99ff,
+        'fields': [{
+          'name': "**Thiết Bị**",
+          'value': '`' + _0x5cc892 + '`',
+          'inline': true
+        }, {
+          'name': "**IP Address**",
+          'value': '`' + _0x55476a + '`',
+          'inline': true
+        }, {
+          'name': "**Tổng số lần sử dụng**",
+          'value': '`' + _0x30d8f9 + '`',
+          'inline': false
+        }],
+        'footer': {
+          'text': "Bypasser System",
+          'icon_url': "https://i.pinimg.com/736x/c3/66/df/c366df7cc91f1e3d67fc409db3042a42.jpg"
+        },
+        'timestamp': new Date().toISOString()
+      }]
+    };
+    fetch("https://discord.com/api/webhooks/1344990413282611220/UUGIJ3xw0zqvmLgLvhisOycp0vgqLaUHmpNzo7Xw7xn79to1xlZYIbHy-eTnIun46gp9", {
+      'method': "POST",
+      'headers': { 'Content-Type': "application/json" },
+      'body': JSON.stringify(_0x8e2248)
+    }).catch(_0x5acdae => console.error("Lỗi gửi Webhook:", _0x5acdae));
+  }
+
+  (async function () {
+    const _0x5828a3 = await _0x2b506f();
+    const _0x253d33 = await _0x15ec35();
+    let _0xf2d677 = JSON.parse(localStorage.getItem("deviceUsage")) || {};
+    const _0x2fbd8e = _0x253d33 + '-' + _0x5828a3;
+    const _0x5e74ae = (_0xf2d677[_0x2fbd8e] || 0) + 1;
+    _0xf2d677[_0x2fbd8e] = _0x5e74ae;
+    localStorage.setItem("deviceUsage", JSON.stringify(_0xf2d677));
+    _0x25b8cb(_0x253d33, _0x5828a3, _0x5e74ae);
+  })();
+
+  function _0x5539fe() {
+    console.log("Đang đổi nhiệm vụ...");
+    const _0x59ad89 = document.querySelector("#btn-baoloi");
+    if (!_0x59ad89) return;
+    _0x59ad89.click();
+    setTimeout(() => {
+      const _0x2f6b6d = document.querySelector("#lydo_doima > center > a:nth-child(2)");
+      if (_0x2f6b6d) _0x2f6b6d.click();
+      setTimeout(() => {
+        const _0x5480eb = document.querySelector("#lydo_doima > label:nth-child(8) > input[type=radio]");
+        if (_0x5480eb) _0x5480eb.click();
+        setTimeout(() => {
+          const _0x496d0b = document.querySelector("#dongy_doima > a");
+          if (_0x496d0b) _0x496d0b.click();
+        }, 500);
+      }, 500);
+    }, 500);
+  }
+
+  function _0x32a56b() {
+    return new Promise((_0x46145b, _0x2a9256) => {
+      const _0x1cd01c = document.querySelector("p#TK1").textContent.trim().toLowerCase();
+      const _0x191777 = document.querySelector("img#halt_nv") || document.querySelector("img#hinh_nv");
+      const _0x41e565 = _0x191777 ? _0x191777.src : null;
+      if (_0x41e565.includes("placehold.co")) {
+        setTimeout(() => _0x32a56b().then(_0x46145b).catch(_0x2a9256), 100);
+        return;
+      }
+      const _0x4a83b3 = "https://api.ocr.space/parse/imageurl?apikey=K81664733488957&isOverlayRequired=true&OCREngine=2&url=" + _0x41e565;
+      const _0x2a5017 = new XMLHttpRequest();
+      _0x2a5017.open("GET", _0x4a83b3, true);
+      _0x2a5017.onload = function () {
+        if (_0x2a5017.status === 200) {
+          const _0x3dba6b = JSON.parse(_0x2a5017.responseText);
+          const _0x4fbf65 = _0x3dba6b.ParsedResults[0];
+          const _0x294990 = _0x4fbf65.TextOverlay.Lines.filter(_0x224359 => _0x224359.LineText.match(/\b[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+\b/) && _0x224359.Words && _0x224359.Words.some(_0x5e8f15 => _0x5e8f15.Top < 170)).map(_0x54f3d1 => _0x54f3d1.LineText);
+          let _0x1a636b = '';
+          if (_0x1cd01c === "188bet") _0x1a636b = "https://165.22.63.250" + _0x294990 + '/';
+          else if (_0x1cd01c === "w88") _0x1a636b = "https://188.166.185.213/";
+          else if (_0x1cd01c === "bk8") _0x1a636b = "https://188.166.189.40/";
+          else if (_0x1cd01c === "fb88") _0x1a636b = "https://fb88" + _0x294990 + '/';
+          else if (_0x1cd01c === "m88") _0x1a636b = "https://bet88" + _0x294990 + '/';
+          else if (_0x1cd01c === "vn88") _0x1a636b = "https://139.59.238.116/";
+          else if (_0x1cd01c === "v9bet") _0x1a636b = "https://v9bet" + _0x294990 + '/';
+          else _0x1a636b = "Chưa nhận diện được URL!";
+          _0x46145b(_0x1a636b);
+        } else {
+          _0x2a9256("Lỗi khi tải dữ liệu: " + _0x2a5017.status);
+        }
+      };
+      _0x2a5017.send();
+    });
+  }
+
+  function _0x1af6b0(_0x26e613) {
+    const _0x3ae181 = Date.now();
+    return _0x3ae181 + ',' + "https://www.google.com/" + ',' + _0x26e613 + ",IOS900,hidden,null";
+  }
+
+  function _0x348209(_0x17fa6b) {
+    return new Promise((_0x5bbae0, _0x8fc55c) => {
+      const _0x427ad0 = _0x1af6b0();
+      const _0x3b96a4 = new XMLHttpRequest();
+      const _0xc15c03 = "https://traffic-user.net/GET_VUATRAFFIC.php?data=" + _0x427ad0 + "&clk=" + _0x17fa6b;
+      _0x3b96a4.open("POST", _0xc15c03, true);
+      _0x3b96a4.onload = function () {
+        if (_0x3b96a4.status === 200) {
+          const _0x31dff7 = _0x3b96a4.responseText;
+          const _0x45f9a9 = _0x31dff7.match(/localStorage\.codexn\s*=\s*'([^']+)'/)?.[1];
+          if (_0x45f9a9) {
+            localStorage.codexn = _0x45f9a9;
+            _0x5bbae0(_0x45f9a9);
+          } else {
+            console.error("Không thể lấy mã codexn");
+            _0x8fc55c("Lỗi! Đổi nhiệm vụ khác và thử lại");
+          }
+        } else {
+          _0x8fc55c("Lỗi: " + _0x3b96a4.status);
+        }
+      };
+      _0x3b96a4.onerror = () => _0x8fc55c("Lỗi mạng hoặc yêu cầu không thành công");
+      _0x3b96a4.send();
+    });
+  }
+
+  function _0x47d10e(_0x2c5cd2, _0x339f01, _0x58b176, _0x4c6ec9) {
+    return new Promise((_0x9d3f10, _0x108242) => {
+      const _0x48c69f = "https://traffic-user.net/GET_MA.php?codexn=" + _0x2c5cd2 + "&url=" + _0x339f01 + "&loai_traffic=" + _0x58b176 + "&clk=" + _0x4c6ec9;
+      const _0x43f997 = new XMLHttpRequest();
+      _0x43f997.open("POST", _0x48c69f, true);
+      _0x43f997.onload = function () {
+        if (_0x43f997.status === 200) {
+          const _0x55a2f5 = _0x43f997.responseText;
+          const _0x3c4d19 = _0x55a2f5.match(/sessionStorage\.setItem\("ymnclk", (\d+)\)/)?.[1];
+          if (_0x3c4d19) {
+            sessionStorage.setItem("ymnclk", _0x3c4d19);
+            _0x9d3f10(_0x3c4d19);
+          } else {
+            const _0x3a4e0c = new DOMParser().parseFromString(_0x55a2f5, "text/html");
+            const _0x5b1759 = _0x3a4e0c.querySelector("span#layma_me_vuatraffic");
+            if (_0x5b1759) _0x9d3f10(_0x5b1759.textContent.trim());
+            else _0x108242("URL Lỗi! Vui lòng kiểm tra lại.");
+          }
+        } else {
+          _0x108242("Lỗi: " + _0x43f997.status);
+        }
+      };
+      _0x43f997.onerror = () => _0x108242("Lỗi mạng hoặc yêu cầu không thành công");
+      _0x43f997.send();
+    });
+  }
+
+  function _0x3d5922(_0x340af2) {
+    const _0x4d1b79 = document.querySelector("#gt-form")?.getAttribute("action") || '';
+    const _0x1e8b4a = "https://yeumoney.com" + _0x4d1b79;
+    const _0xcbe8a2 = new FormData();
+    _0xcbe8a2.append("code", _0x340af2);
+    _0xcbe8a2.append("keyword", '');
+    _0xcbe8a2.append("dieuhanh", document.querySelector("input[name=\"dieuhanh\"]")?.value || '');
+    _0xcbe8a2.append("pix", document.querySelector("input[name=\"pix\"]")?.value || '');
+    _0xcbe8a2.append("lvp", document.querySelector("input[name=\"lvp\"]")?.value || '');
+    _0xcbe8a2.append("ref", "$ref");
+    _0xcbe8a2.append("trinhduyet", document.getElementById("trinhduyet")?.value || '');
+    _0xcbe8a2.append("id_traffic", document.getElementById("id_donhang")?.value || '');
+    _0xcbe8a2.append("check_index", '1');
+    const _0x49c52a = new URLSearchParams(_0xcbe8a2).toString();
+    GM_xmlhttpRequest({
+      'method': "POST",
+      'url': _0x1e8b4a,
+      'headers': {
+        'Content-Type': "application/x-www-form-urlencoded",
+        'User-Agent': navigator.userAgent,
+        'Referer': "https://yeumoney.com/",
+        'Cookie': document.cookie
+      },
+      'data': _0x49c52a,
+      'onload': function (_0x1c8f02) {
+        window.location.href = _0x1c8f02.finalUrl;
+      },
+      'onerror': function (_0x4c0756) {
+        const _0x46fe84 = _0x4c0756.error;
+        const _0x31671c = _0x46fe84.match(/https?:\/\/[^\s"]+/);
+        window.location.href = _0x31671c;
+      }
+    });
+  }
+
+  async function _0x3085ce(_0x1d4e56) {
+    try {
+      const _0x385d8a = await _0x348209(null);
+      const _0x5385c3 = _0x1d4e56.replace(/\/$/, '');
+      const _0x393c91 = await _0x47d10e(_0x385d8a, _0x5385c3, "https://www.google.com/", null);
+      const _0x3739ed = await _0x348209(_0x393c91);
+      const _0x460945 = _0x1d4e56 + "admin";
+      const _0x2d161a = await _0x47d10e(_0x3739ed, _0x460945, _0x1d4e56, _0x393c91);
+      return _0x2d161a;
+    } catch (_0x4dd45e) {
+      console.error("Lỗi trong startBypass:", _0x4dd45e);
+      return null;
+    }
+  }
+
+  async function _0x55ce13() {
+    try {
+      const _0x1bdb44 = new Date();
+      const _0x77651a = _0x1bdb44.getDate().toString();
+      const _0x4eabed = document.getElementById("docs-title-input-label-inner") || document.querySelector(".docs-ml-header-document-title-text");
+      const _0x443e25 = _0x4eabed.textContent || _0x4eabed.innerText;
+      if (!_0x443e25.includes("TÌM MÃ BƯỚC 2")) {
+        const _0x722c2b = localStorage.getItem("dayBypassed");
+        if (_0x722c2b === _0x77651a) {
+          console.log("Đã bypass hôm nay.");
+          return null;
+        }
+        if (_0x443e25.includes("BACKUP KHÓA HỌC 2K7 FREE")) {
+          const _0xa6375c = confirm("Bạn có muốn Bypass không?!");
+          if (!_0xa6375c) {
+            localStorage.setItem("dayBypassed", _0x77651a);
+            return null;
+          }
+        } else {
+          return null;
+        }
+      }
+      localStorage.setItem("dayBypassed", _0x77651a);
+      const _0x56de1c = window.location.href;
+      const _0x27939b = _0x56de1c.match(/\/d\/([a-zA-Z0-9-_]+)/)?.[1];
+      if (!_0x27939b) {
+        console.error("Không tìm thấy Sheet ID.");
+        return null;
+      }
+      const _0xb9c655 = "https://sheets.googleapis.com/v4/spreadsheets/" + _0x27939b + "?fields=sheets(data(rowData(values(userEnteredValue,hyperlink))))&key=" + "AIzaSyDTEFhPROUdMvEg7pTPF13rTRCfgXbJLJo";
+      const _0x4fbede = await fetch(_0xb9c655);
+      if (!_0x4fbede.ok) {
+        console.error("Lỗi khi gọi API:", _0x4fbede.statusText);
+        return null;
+      }
+      const _0x50132b = await _0x4fbede.json();
+      const _0x4620e5 = _0x50132b.sheets?.[0]?.data?.[0]?.rowData || [];
+      for (let _0x275542 of _0x4620e5) {
+        for (let _0x563403 of _0x275542.values || []) {
+          const _0xd8acfb = _0x563403.hyperlink;
+          if (_0xd8acfb && _0xd8acfb.includes("https://yeumoney.com/")) {
+            return _0xd8acfb;
+          }
+        }
+      }
+      console.warn("Không tìm thấy hyperlink hợp lệ.");
+      return null;
+    } catch (_0x125e08) {
+      console.error("Lỗi:", _0x125e08.message);
+      return null;
+    }
+  }
+
+  async function _0x26a49e() {
+    if (!document.title.includes("Điểm danh ngày")) return null;
+    window.onbeforeunload = null;
+    function _0x345a53(_0x1ebe3e, _0x136e2e) {
+      setTimeout(() => {
+        if (!_0x1ebe3e.classList.contains("checked")) _0x1ebe3e.click();
+      }, _0x136e2e);
+    }
+    function _0x411bf8(_0x330721, _0x33d91d) {
+      setTimeout(() => {
+        if (!_0x330721.classList.contains("checked")) _0x330721.click();
+      }, _0x33d91d);
+    }
+    var _0x124e10 = document.querySelectorAll("div[role=\"checkbox\"]");
+    _0x124e10.forEach((_0x92ee1a, _0x21b8eb) => _0x345a53(_0x92ee1a, _0x21b8eb * 300));
+    var _0xf2d536 = document.querySelectorAll("div[role=\"radiogroup\"]");
+    _0xf2d536.forEach(_0x50211c => {
+      var _0x582458 = _0x50211c.querySelectorAll("div[role=\"radio\"]");
+      _0x582458.forEach((_0xe2256e, _0x6c40a1) => _0x411bf8(_0xe2256e, _0x6c40a1 * 300));
+    });
+    setTimeout(() => {
+      var _0x175f6a = document.querySelector("form");
+      if (_0x175f6a) _0x175f6a.submit();
+    }, (_0x124e10.length + _0xf2d536.length) * 300 + 200);
+  }
+
+  function _0x369831(_0x34ffe7) {
+    const _0x4c042c = document.createElement("div");
+    _0x4c042c.id = "bypass-panel";
+    _0x4c042c.style.position = "fixed";
+    _0x4c042c.style.top = "20px";
+    _0x4c042c.style.right = "20px";
+    _0x4c042c.style.background = "linear-gradient(135deg, rgba(15, 20, 30, 0.98), rgba(25, 35, 45, 0.98))";
+    _0x4c042c.style.backdropFilter = "blur(15px)";
+    _0x4c042c.style.border = "1px solid rgba(255, 255, 255, 0.1)";
+    _0x4c042c.style.borderRadius = "20px";
+    _0x4c042c.style.padding = "0";
+    _0x4c042c.style.zIndex = "9999";
+    _0x4c042c.style.width = "360px";
+    _0x4c042c.style.boxShadow = "0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 204, 255, 0.1)";
+    _0x4c042c.style.color = "#ffffff";
+    _0x4c042c.style.fontFamily = "'Roboto', sans-serif";
+    _0x4c042c.style.transition = "all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)";
+    _0x4c042c.style.overflow = "hidden";
+    _0x4c042c.style.transformOrigin = "center";
+
+    const _0xfontLink = document.createElement("link");
+    _0xfontLink.href = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap";
+    _0xfontLink.rel = "stylesheet";
+    document.head.appendChild(_0xfontLink);
+
+    const _0x43d9b1 = document.createElement("style");
+    _0x43d9b1.textContent = `
+        .bypass-header {
+            padding: 14px 18px;
+            background: linear-gradient(135deg, rgba(30, 40, 50, 0.95), rgba(20, 30, 40, 0.95));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .bypass-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00ffcc, #00ccff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 8px rgba(0, 204, 255, 0.2);
+        }
+        .bypass-content {
+            padding: 18px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.4s ease;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2), 0 0 12px rgba(0, 204, 255, 0.1);
+        }
+        input[type="text"]:focus {
+            border-color: #00ccff;
+            box-shadow: 0 0 18px rgba(0, 204, 255, 0.5), inset 0 2px 6px rgba(0, 0, 0, 0.2);
+            outline: none;
+            transform: scale(1.02);
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            margin: 16px 0;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .checkbox-label:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="checkbox"]:checked {
+            background: linear-gradient(45deg, #00ccff, #ff00ff);
+            border-color: #00ccff;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+        input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 10px;
+            text-shadow: 0 0 5px rgba(0, 204, 255, 0.7);
+        }
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 204, 255, 0.2);
+        }
+        button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 7px 22px rgba(0, 0, 0, 0.4), 0 0 18px rgba(0, 204, 255, 0.4);
+        }
+        .btn-bypass {
+            background: linear-gradient(45deg, #00ccff, #00ffcc);
+            color: #fff;
+        }
+        .btn-change {
+            background: linear-gradient(45deg, #ff3366, #ff6699);
+            color: #fff;
+        }
+        .url-info {
+            font-size: 12px;
+            color: #00ffcc;
+            word-break: break-all;
+            margin: 14px 0;
+            opacity: 0.9;
+            line-height: 1.6;
+            text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
+        }
+        .author-text {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.15));
+            box-shadow: inset 0 -2px 10px rgba(0, 204, 255, 0.05);
+            animation: glow 3s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: inset 0 -2px 10px rgba(0, 204, 255, 0.05); }
+            to { box-shadow: inset 0 -2px 10px rgba(0, 204, 255, 0.2); }
+        }
+        #bypass-panel:hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 204, 255, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+            animation: particleSpread 1.8s infinite ease-out;
+        }
+        @keyframes particleSpread {
+            0% { transform: scale(0); opacity: 0.8; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(_0x43d9b1);
+
+    const _0xheader = document.createElement("div");
+    _0xheader.className = "bypass-header";
+
+    const _0x432103 = document.createElement('h3');
+    _0x432103.className = "bypass-title";
+    _0x432103.textContent = "Bypasser Yeumoney Tool";
+    _0xheader.appendChild(_0x432103);
+
+    // Xóa nút toggle (không cần nữa vì không có chức năng thu nhỏ)
+    _0x4c042c.appendChild(_0xheader);
+
+    const _0xcontent = document.createElement("div");
+    _0xcontent.className = "bypass-content";
+
+    const _0x3db371 = document.createElement("input");
+    _0x3db371.type = "text";
+    _0x3db371.placeholder = "Enter URL (Optional)";
+    _0xcontent.appendChild(_0x3db371);
+
+    const _0x85b80b = document.createElement('div');
+    _0x85b80b.className = "url-info";
+    _0x85b80b.textContent = "OCR URL: " + _0x34ffe7;
+    _0xcontent.appendChild(_0x85b80b);
+
+    const _0x14ceaa = document.createElement("div");
+    _0x14ceaa.className = "checkbox-group";
+
+    const _0xd86eee = document.createElement("input");
+    _0xd86eee.type = "checkbox";
+    _0xd86eee.id = "fetchCode";
+    _0xd86eee.checked = GM_getValue("fetchCode", false);
+    const _0x51d7e5 = document.createElement("label");
+    _0x51d7e5.className = "checkbox-label";
+    _0x51d7e5.htmlFor = "fetchCode";
+    _0x51d7e5.textContent = "Auto Chuyển Trang";
+    _0x14ceaa.appendChild(_0xd86eee);
+    _0x14ceaa.appendChild(_0x51d7e5);
+
+    const _0x2c7e97 = document.createElement("input");
+    _0x2c7e97.type = "checkbox";
+    _0x2c7e97.id = "autoStart";
+    _0x2c7e97.checked = GM_getValue("autoStart", false);
+    const _0x3eb656 = document.createElement("label");
+    _0x3eb656.className = "checkbox-label";
+    _0x3eb656.htmlFor = "autoStart";
+    _0x3eb656.textContent = "Auto Bypass";
+    _0x14ceaa.appendChild(_0x2c7e97);
+    _0x14ceaa.appendChild(_0x3eb656);
+    _0xcontent.appendChild(_0x14ceaa);
+
+    const _0x456ddd = document.createElement("div");
+    _0x456ddd.className = "button-group";
+
+    const _0x3940b0 = document.createElement("button");
+    _0x3940b0.textContent = "Bypass Now";
+    _0x3940b0.className = "btn-bypass";
+    _0x3940b0.onclick = async () => {
+        try {
+            _0x3db371.readOnly = true;
+            const _0x594d65 = _0x3db371.value || _0x34ffe7;
+            _0x3db371.value = "Chờ Xíu Nhe...";
+            const _0x2412a5 = await _0x3085ce(_0x594d65);
+            if (_0x2412a5) {
+                let _0x2fd7b3 = 2;
+                const _0x956e1e = setInterval(() => {
+                    _0x3db371.value = "Chờ Đợi Là Hạnh Phúc Sau: " + _0x2fd7b3 + "s Thôi!";
+                    _0x2fd7b3--;
+                    if (_0x2fd7b3 < 0) {
+                        clearInterval(_0x956e1e);
+                        if (_0xd86eee.checked) {
+                            _0x3db371.value = "Code: " + _0x2412a5 + " - Đang Chuyển Trang...";
+                            _0x3d5922(_0x2412a5);
+                        } else {
+                            _0x3db371.value = "Code: " + _0x2412a5;
+                        }
+                        _0x3940b0.disabled = false;
+                    }
+                }, 1000);
+            } else {
+                _0x3db371.readOnly = false;
+                _0x3db371.value = "Error! Xem Lại URL";
+            }
+            sessionStorage.removeItem("ymnclk");
+            localStorage.removeItem("codexn");
+        } catch (_0x3ae280) {
+            console.error("Bypass Lỗi:", _0x3ae280);
+        }
+    };
+    _0x456ddd.appendChild(_0x3940b0);
+
+    const _0x15ac9d = document.createElement("button");
+    _0x15ac9d.textContent = "Đổi Nhiệm Vụ";
+    _0x15ac9d.className = "btn-change";
+    _0x15ac9d.onclick = async () => {
+        _0x3db371.readOnly = true;
+        _0x3db371.value = "Đang Đổi Nhiệm Vụ...";
+        _0x5539fe();
+    };
+    _0x456ddd.appendChild(_0x15ac9d);
+    _0xcontent.appendChild(_0x456ddd);
+    _0x4c042c.appendChild(_0xcontent);
+
+    const _0x4b78e4 = document.createElement('div');
+    _0x4b78e4.className = "author-text";
+    _0x4b78e4.textContent = "Code By Hieudz • Ducknovis";
+    _0x4c042c.appendChild(_0x4b78e4);
+
+    document.body.appendChild(_0x4c042c);
+
+    if (_0x2c7e97.checked) _0x3940b0.click();
+
+    _0xd86eee.addEventListener("change", () => GM_setValue("fetchCode", _0xd86eee.checked));
+    _0x2c7e97.addEventListener("change", () => GM_setValue("autoStart", _0x2c7e97.checked));
+  }
+
+  const _0x34c127 = window.location.href;
+  window.onload = () => {
+    if (_0x34c127.includes("https://yeumoney.com/")) {
+      _0x32a56b().then(_0x2afd24 => {
+        _0x369831(_0x2afd24);
+      }).catch(_0x3b2899 => {
+        console.error("Lỗi khi nhận diện URL:", _0x3b2899);
+        _0x369831("Lỗi! Tự nhập URL hoặc Reload");
+      });
+    } else if (_0x34c127.includes("https://docs.google.com/spreadsheets/")) {
+      _0x55ce13().then(_0x28f9c3 => {
+        if (_0x28f9c3) window.location.href = _0x28f9c3;
+      }).catch(_0x3208c8 => console.error("Lỗi khi gọi hàm:", _0x3208c8));
+    } else if (_0x34c127.includes("https://docs.google.com/forms/")) {
+      _0x26a49e();
+    }
+  };
+})();
